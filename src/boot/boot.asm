@@ -39,7 +39,7 @@ gdt_null:
 
 ;offset 0x8
 gdt_code:
-    dx 0xffff ; segment limit first 0-15 bits
+    dw 0xffff ; segment limit first 0-15 bits
     dw 0      ; base first 0-15 bits
     db 0      ; base 16-23 bits
     db 0x9a   ; access byte
@@ -48,7 +48,7 @@ gdt_code:
 
 ;offset 0x10
 gdt_data:
-    dx 0xffff ; segment limit first 0-15 bits
+    dw 0xffff ; segment limit first 0-15 bits
     dw 0      ; base first 0-15 bits
     db 0      ; base 16-23 bits
     db 0x92   ; access byte
@@ -57,12 +57,12 @@ gdt_data:
 
 gdt_end:
 
-get_descriptor:
+gdt_descriptor:
     dw gdt_end - gdt_start -1
     dd gdt_start
 
 [BITS 32]
-load 32:
+load32:
     mov ax, DATA_SEG
     mov ds, ax
     mov es, ax
