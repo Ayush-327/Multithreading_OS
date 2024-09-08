@@ -72,5 +72,6 @@ void kernel_main()
     print("Hello world\nWow");
 
     //Inititalize the interrupt descriptor table
-    idt_init();   
+    idt_init();
+
 }
