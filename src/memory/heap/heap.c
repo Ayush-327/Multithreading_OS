@@ -49,14 +49,14 @@ int heap_create(struct heap* heap, void* ptr, void* end, struct heap_table* tabl
     memset(table->entries, HEAP_BLOCK_TABLE_ENTRY_FREE, table_size); 
 
 out:
-    return 0;
+    return res;
 }
 
 static uint32_t heap_align_value_to_upper(uint32_t val)
 {
     if((val % PEACHOS_HEAP_BLOCK_SIZE) == 0)
     {
-        return 0;
+        return val;
     }
 
     val = val - (val % PEACHOS_HEAP_BLOCK_SIZE);
