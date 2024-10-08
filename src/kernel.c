@@ -3,6 +3,7 @@
 #include "io/io.h"
 #include "memory/heap/kheap.h"
 #include "memory/paging/paging.h"
+#include "fs/file.h"
 #include <stddef.h>
 #include <stdint.h>
 #include "disk/disk.h"
@@ -73,6 +74,9 @@ void kernel_main()
     //Initialize the heap
     kheap_init();
 
+    //initialize filesystems
+    fs_init();
+    
     //Serch and initialise disks
     disk_search_and_init();
 
@@ -92,10 +96,10 @@ void kernel_main()
     enable_interrupts();
 
     // target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
-    struct disk_stream* stream = diskstreamer_new(0);
-    diskstreamer_seek(stream, 0x201);
-    unsigned char c = 0;
-    diskstreamer_read(stream, &c, 1);
+    
+    char buf[20];
+    strcpy(buf, "hello!");
+
     while(1)
     {}
 }
