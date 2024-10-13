@@ -127,6 +127,7 @@ int fopen(const char* filename, const char* mode_str)
     if(!root_path)
     {
         res = -EINVARG;
+        goto out;
     }
 
     if(!root_path->first)

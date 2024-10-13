@@ -97,9 +97,10 @@ void kernel_main()
 
     // target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
     
-    char buf[20];
-    strcpy(buf, "hello!");
-
-    while(1)
-    {}
+    int fd = fopen("0:/hello.txt", "r");
+    if (fd)
+    {
+        print("We opened hello.txt\n");
+    }
+    while(1) {}
 }

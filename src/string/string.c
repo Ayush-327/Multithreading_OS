@@ -102,3 +102,14 @@ int tonumericdigit(char c)
 {
     return c-48;
 }
+
+void* memcpy(void* dest, void* src, int len)
+{
+    char *d = dest;
+    char *s = src;
+    while(len--)
+    {
+        *d++ = *s++;
+    }
+    return dest;
+}
