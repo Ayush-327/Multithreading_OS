@@ -97,7 +97,7 @@ void kernel_main()
 
     // target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
     
-    int fd = fopen("0:/hello.txt", "r");
+    int fd = fopen("0:/hello2.txt", "r");
     if (fd)
     {
         print("We opened hello.txt\n");
